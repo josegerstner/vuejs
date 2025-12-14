@@ -1,14 +1,17 @@
 <template>
   <MyComponent />
+  <MyComponentVuex />
 </template>
 
 <script>
 import MyComponent from './components/MyComponent.vue'
+import MyComponentVuex from './components/MyComponentVuex.vue'
 
 export default {
   name: 'App',
   components: {
-    MyComponent
+    MyComponent,
+    MyComponentVuex
   }
 }
 </script>
