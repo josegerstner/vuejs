@@ -17,6 +17,42 @@
     description: "Un mango",
     id: 4
   };
+
+  const arrayFrutasStock = [
+    { 
+      name: 'Manzana', 
+      price: "1.00", 
+      description: "Una manzana",
+      stock: 0
+    },
+    { 
+      name: 'Pera', 
+      price: "2.00", 
+      description: "Una pera",
+      stock: 10 
+    },
+    { 
+      name: 'Naranja', 
+      price: "3.00", 
+      description: "Una naranja",
+      stock: 20 
+    }
+  ];
+
+  //eventos
+  const handleClick = () => {
+    console.log('me diste click')
+  }
+
+  // variables reactivas
+  import { ref } from 'vue';
+  const counter = ref(0);
+
+  const increment = () => {
+    console.log('aumentar contador');
+    counter.value++;
+    console.log(counter);
+  }
 </script>
 
 <template>
@@ -53,6 +89,22 @@
       {{ index }} - {{ propiedad }}: {{ value }}
     </li>
   </ul>
+
+  <h3>v-for & v-if & template</h3>
+  <ul>
+    <template v-for="item in arrayFrutasStock" :key="item.name">
+      <li v-if="item.stock > 0">
+        {{ item.name }} - {{ item.price }}
+      </li>
+    </template>
+  </ul>
+
+  <h3>v-on</h3>
+  <button @click="handleClick">Activame</button>
+
+  <h3>variables reactivas</h3>
+  <h2>{{ counter }}</h2>
+  <button @click="increment">Aumentar</button>
 </template>
 
 <style>

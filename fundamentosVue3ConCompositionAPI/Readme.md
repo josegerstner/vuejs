@@ -53,3 +53,52 @@ La directiva **v-for** la podemos usar para recorrer arreglos, arreglos de objet
 </ul>
 ```  
   
+# v-for + v-if  
+Se puede hacer que a partir de un arreglo se imprima el listado condicionalmente. Hay que tener en cuenta que el **v-if** es lo que el motor buscará primero, por lo que hay que tener algunas cosas en cuenta para utilizarlos.  
+Si quiero usarlos a la vez, debe ser usando dos variables distintas, por ejemplo:  
+```vue
+<ul>
+    <li v-if="activo" v-for="fruta in arrayFrutas" :key="fruta.name">
+        {{ fruta.name }} - {{ fruta.price }}
+    </li>
+</ul>
+```  
+En este caso, usamos la variable *activo* para condicionar si se imprime o no imprime el for.  
+Otra opción sería agregar un span en el texto a imprimir:  
+```vue
+<ul>
+    <li v-for="fruta in arrayFrutas" :key="fruta.name">
+        <span v-if="fruta.stock > 0">{{ fruta.name }} - {{ fruta.price }}
+    </li>
+</ul>
+```  
+El problema al hacer esto es que, si hay alguna fruta sin stock, igual se imprimirá el **li** correspondiente a esa fruta sin stock. No imprime el *span*, pero sí el *li*.  
+  
+# v-for + v-if + template  
+Como solución para usar ambos a la vez, sería poner el **v-for** en un **template** y adentro el **v-if** en un **li**.  
+```vue  
+<template v-for="item in arrayFrutasStock" :key="item.name">
+    <li v-if="item.stock > 0">
+        {{ item.name }} - {{ item.price }}
+    </li>
+</template>
+```  
+  
+# Variables reactivas con ref()  
+Para que Vue renderice el valor de una variable a la que vamos cambiándole el valor, es necesario que le digamos que esa variable es *reactiva*.
+```vue  
+<script>
+    import { ref } from 'vue'
+
+    const counter = ref(0);
+    const increment = () => {
+        counter.value++;
+    }
+</script>
+<template>
+    <h2>{{ counter }}</h2>
+    <button @click="increment">Aumentar</button>
+</template>
+```  
+Fijarse bien que para incrementar el valor de nuestra variable *counter* estamos poniendo *counter.value*, ya que **ref** nos devuelve un objeto.  
+  
