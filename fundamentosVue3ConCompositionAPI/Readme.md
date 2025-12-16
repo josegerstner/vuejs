@@ -102,3 +102,21 @@ Para que Vue renderice el valor de una variable a la que vamos cambiándole el v
 ```  
 Fijarse bien que para incrementar el valor de nuestra variable *counter* estamos poniendo *counter.value*, ya que **ref** nos devuelve un objeto.  
   
+# Propiedades computadas (computed)  
+No se recomienda utilizar demasiada lógica en las plantillas HTML. Por eso, para lógica compleja que incluya datos reactivos se recomienda usar **propiedades computadas**.  
+```vue  
+<script>
+    import { computed } from 'vue';
+
+    const classCounter = computed(() => {
+        return counter.value > 0 ? 'positive' : counter.value < 0 ? 'negative' : 'zero';
+    });
+</script>
+<template>
+    <h2 :class="classCounter">{{ counter }}</h2>
+    <button @click="increment">Aumentar</button>
+    <button @click="decrement">Disminuir</button>
+    <button @click="reset">Resetear</button>
+</template>
+```  
+**NOTA**: se podría usar una función en lugar de una **propiedad computada**. La funcionalidad sería la misma. La diferencia está en que estas últimas se almacenan en caché en función de sus dependencias reactivas.  
