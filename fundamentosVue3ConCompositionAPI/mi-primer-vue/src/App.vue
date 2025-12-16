@@ -87,8 +87,8 @@
     numero.value = '';
   }
 
-  const permiteAgregar = computed(() => {
-    return numero.value !== '' && !isNaN(numero.value) && !arrayNumeros.value.includes(Number(numero.value));
+  const bloqueaBoton = computed(() => {
+    return numero.value === '' || isNaN(numero.value) || arrayNumeros.value.includes(Number(numero.value));
   });
 
 </script>
@@ -149,7 +149,7 @@
 
   <h3>práctica final</h3>
   <input type="number" v-model="numero" />
-  <button :disabled="!permiteAgregar" @click="agregarNumero">Agregar número</button>
+  <button :disabled="bloqueaBoton" @click="agregarNumero">Agregar número</button>
   <ul>
     <li v-for="(num, index) in arrayNumeros" :key="index">
       {{ index }} - {{ num }}
