@@ -23,24 +23,24 @@ export const categorias = [
 export const medios_pagos = [
     {
         "id" : 1,
-        "categoria" : "Tarjeta Crédito",
+        "nombre" : "Tarjeta Crédito",
         "banco" : "Santander",
-        "empresa" : "VISA"
+        "financiera" : "VISA"
     }, {
         "id" : 2,
-        "categoria" : "Tarjeta Crédito",
+        "nombre" : "Tarjeta Crédito",
         "banco" : "Santander",
-        "empresa" : "AMEX"
+        "financiera" : "AMEX"
     }, {
         "id" : 3,
-        "categoria" : "Tarjeta Crédito",
+        "nombre" : "Tarjeta Crédito",
         "banco" : "Mercado Pago",
-        "empresa" : "MasterCard"
+        "financiera" : "MasterCard"
     }, {
         "id" : 4,
-        "categoria" : "Tarjeta Débito",
+        "nombre" : "Tarjeta Débito",
         "banco" : "Santander",
-        "empresa" : "Personal"
+        "financiera" : "Personal"
     }
 ]
 

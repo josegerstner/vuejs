@@ -1,12 +1,7 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { useMediosPagosStore } from '@/stores/mediosPagos'
 
-const emit = defineEmits(['search'])
-const search = ref('')
-
-watch(search, (value) => {
-  emit('search', value)
-})
+const store = useMediosPagosStore()
 </script>
 
 <template>
@@ -14,6 +9,6 @@ watch(search, (value) => {
     class="form-control mb-4"
     type="search"
     placeholder="Buscar..."
-    v-model="search"
+    v-model="store.searchQuery"
   />
 </template>
