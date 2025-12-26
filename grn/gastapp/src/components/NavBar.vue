@@ -1,8 +1,8 @@
 <template>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <img alt="Vue logo" class="logo me-3" src="/dolar_volando.png" width="40" height="40" />
-            <RouterLink to="/" class="navbar-brand"> GastApp</RouterLink>
+            <RouterLink to="/"><img alt="Vue logo" class="logo me-3" src="/dolar_volando.png" width="40" height="40" /></RouterLink>
+            <RouterLink to="/" class="navbar-brand">GastApp</RouterLink>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
