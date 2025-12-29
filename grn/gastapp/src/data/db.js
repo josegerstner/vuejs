@@ -96,6 +96,20 @@ export const monedas = [
     }
 ]
 
+export const tenencias = [
+    {
+        "id" : 1,
+        "nombre" : "Efectivo",
+        "moneda_id" : 1,
+        "monto" : 50000.00,
+    }, {
+        "id" : 2,
+        "nombre" : "Cuenta Remunerada BIND",
+        "moneda_id" : 1,
+        "monto" : 250000.00,
+    }
+]
+
 export const gastos = [
     {
         "id" : 1,
